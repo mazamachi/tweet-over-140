@@ -1,0 +1,39 @@
+{
+  "name": "Tweeeet Over 140",
+  "short_name": "Tweet > 140",
+  "description": "This extension enables you to tweet more than 140 characters even in Japanese, Chinese, and Korean.\n日本語・韓国語・中国語であっても140文字制限を超えて280文字までツイートできるようになります。",
+  "version": "0.1.0",
+  "manifest_version": 2,
+  "default_locale": "en",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://twitter.com/*",
+        "https://twitter.com/*"
+      ],
+      "css": [
+        "styles/contentscript.css"
+      ],
+      "js": [
+        "scripts/contentscript.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://twitter.com/*",
+    "cookies"
+  ]
+}
